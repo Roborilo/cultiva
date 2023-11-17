@@ -14,7 +14,7 @@ const poppins = Poppins({
 
 export default function Header() {
   return (
-    <header className="header flex fixed h-28 w-full justify-between items-center bg-cultiva-black shadow-md">
+    <header className="header flex fixed h-28 w-full justify-between items-center bg-cultiva-black shadow-md z-50">
       <div className="flex gap-5 items-center">
         <a href="#" className="inline-flex justify-center items-center h-full">
           <Image className="ml-5 h-20 w-20" src={cultivaLogo} alt="Logo da Cultiva" />

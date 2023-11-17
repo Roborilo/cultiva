@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn('w-screen h-screen', roboto.variable)}>
         <NextAuthProvider>
-          <Theme className="w-full h-full layout">
+          <Theme className="w-full h-full layout" appearance="dark" accentColor="ruby" grayColor="gray" panelBackground="solid">
             <Header />
             <main className="main bg-pink-400 w-full h-[5000px]">{children}</main>
             <Sidebar />
