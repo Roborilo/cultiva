@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import '@radix-ui/themes/styles.css'
+import './globals.css'
 
 import { Roboto } from 'next/font/google'
-import './globals.css'
 import { NextAuthProvider } from './providers'
 import { cn } from '@/lib/utils/utils'
 import Sidebar from '@/components/layout/sidebar/Sidebar'

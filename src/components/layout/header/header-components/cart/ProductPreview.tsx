@@ -7,6 +7,8 @@ type ProductPreviewProps = {
 	image: string
 }
 
+// TODO: IMPLEMENT CART POPUP
+
 export default function ProductPreview({ name, quantity, price, image }: ProductPreviewProps) {
 	return (
 		<div className="flex justify-between items-center w-full mt-3 border-b border-t py-2">
@@ -17,7 +19,7 @@ export default function ProductPreview({ name, quantity, price, image }: Product
 			<div>
 				<p className='text-lg font-semibold'>R${price.toFixed(2)}</p>
 				<button className="font-semibold text-lg flex gap-2 items-center">
-					<CiCircleMinus className='text-red-500 font-semibold' />
+					<CiCircleMinus className='text-red-500 font-semibold' onClick={() => {}} />
 					<p>Qtd: <span className="font-semibold">{quantity}</span></p>
 				</button>
 			</div>

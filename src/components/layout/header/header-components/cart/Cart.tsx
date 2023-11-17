@@ -6,13 +6,28 @@ import { FaShoppingCart } from 'react-icons/fa';
 import ProductPreview from './ProductPreview';
 
 export default function CartPopover() {
+	const products = [
+		{
+			name: 'Coca Cola',
+			quantity: 1,
+			price: 3.50,
+			image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
+		},
+		{
+			name: 'Pepsi',
+			quantity: 3,
+			price: 100.50,
+			image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
+		}
+	]
+
 	return (
 			<Popover.Root>
 			<Popover.Trigger>
-				<button className="button py-3 px-5 text-base font-medium rounded text-white bg-black shadow-sm transition-shadow duration-150 hover:shadow-sm shadow-white flex gap-1">
+				<div className="button py-3 px-5 text-base font-medium rounded text-white bg-black shadow-sm transition-shadow duration-150 hover:shadow-sm shadow-white flex gap-1">
 					<FaShoppingCart className="text-2xl" />
 					Carrinho
-				</button>
+				</div>
 			</Popover.Trigger>
  
 			<Popover.Portal>
@@ -20,7 +35,15 @@ export default function CartPopover() {
         sideOffset={5}>        
 					<div className="flex flex-col">
 						<p className="text-mauve12 text-[20px] leading-[19px] font-semibold mb-2.5">Carrinho</p>
-						<ProductPreview name="Cultiva" quantity={1} price={1960} image="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png" />
+						{products.map((product) => (
+							<ProductPreview
+								key={product.name}
+								name={product.name}
+								quantity={product.quantity}
+								price={product.price}
+								image={product.image}
+							/>
+						))}
 						<div>
 							<p className="font-semibold text-lg mt-2 flex justify-between items-center pb-2 border-b px-2">
 								<span>Total</span>
