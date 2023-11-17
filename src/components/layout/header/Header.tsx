@@ -1,5 +1,4 @@
 import { FaBookmark } from "react-icons/fa";
-import { IoIosNotifications } from "react-icons/io";
 import { MdSell } from "react-icons/md";
 import NavLink from "./header-components/NavLink";
 import Hamburguer from "./header-components/Hamburguer";
@@ -7,6 +6,7 @@ import SearchInput from "./header-components/Input/SearchInput";
 import Avatar from "./header-components/Avatar";
 import HeaderLogo from "./header-components/HeaderLogo";
 import CartPopover from "./header-components/cart/Cart";
+import Notifications from "./header-components/notifications/Notification";
 
 export default function Header() {
   return (
@@ -22,14 +22,11 @@ export default function Header() {
         </div>
       </div>
       <nav className="inline-flex items-center gap-3 mr-8">
-        <NavLink href="#">
+        <NavLink href={"/favorites"}>
           <FaBookmark className="text-2xl" />
           Favoritos
         </NavLink>
-        <NavLink href="#">
-          <IoIosNotifications className="text-2xl" />
-          Notificações
-        </NavLink>
+        <Notifications />
         <CartPopover />
         <Hamburguer />
         <Avatar />

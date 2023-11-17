@@ -50,14 +50,22 @@ export default function Hamburguer() {
 						</>
 					) : (
 						<>
-						<DropdownMenu.Separator className="h-[1px] bg-zinc-700 m-[5px]" />
+							<DropdownMenu.Separator className="h-[1px] bg-zinc-700 m-[5px]" />
 
-						<Link href={'/api/auth/signin'}>
-							<DropdownMenu.Item className="group text-[13px] leading-none text-violet11 justify-start flex items-center px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 text-xl text-white bg-green-600 rounded-full py-2.5">
-								<GoSignIn />
-								Entrar
-							</DropdownMenu.Item>
-						</Link>
+							<Link href={'/api/auth/signin'}>
+								<DropdownMenu.Item className="group text-[13px] leading-none text-violet11 justify-start flex items-center px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 text-xl text-white bg-green-600 rounded-full py-2.5">
+									<GoSignIn />
+									Entrar
+								</DropdownMenu.Item>
+							</Link>
+							<DropdownMenu.Separator className="h-[1px] bg-zinc-700 m-[5px]" />
+
+							<Link href={'/create-account'}>
+								<DropdownMenu.Item className="group text-[13px] leading-none text-violet11 justify-start flex items-center px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 text-xl text-white bg-green-600 rounded-full py-2.5">
+									<GoSignIn />
+									Criar Conta
+								</DropdownMenu.Item>
+							</Link>
 						</>
 					)}
 
