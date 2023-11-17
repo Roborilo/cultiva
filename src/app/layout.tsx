@@ -31,8 +31,10 @@ export default function RootLayout({
         <NextAuthProvider>
           <Theme className="w-full h-full layout" appearance="dark" accentColor="ruby" grayColor="gray" panelBackground="solid">
             <Header />
-            <main className="main bg-pink-400 w-full h-[5000px]">{children}</main>
-            <Sidebar />
+            <main className="main bg-cultiva-main w-full h-[5000px]">{children}</main>
+            <div className='sticky top-28'>
+              <Sidebar />
+            </div>
           </Theme>
         </NextAuthProvider>
       </body>

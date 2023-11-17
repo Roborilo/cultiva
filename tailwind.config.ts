@@ -15,7 +15,12 @@ const config: Config = {
       },
       backgroundColor: {
         'cultiva-black': '#141414',
-      }
+        'cultiva-main': '#242424',
+        'dropdown-menu-dark': '#202020',
+      },
+      textColor: {
+        'cultiva-color': '42FF00',
+      },
     },
   },
   plugins: [],

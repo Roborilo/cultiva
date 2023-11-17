@@ -15,8 +15,6 @@ export default function Home() {
         <div>{session?.user?.email}</div>
       )}
       {session && <div>{JSON.stringify(session, null, 2)}</div>}
-      {!session && <Link href={'/api/auth/signin'}>Sign in</Link>}
-      {session && <Link href={'/api/auth/signout'}>Sign out</Link>}
     </main>
   )
 }

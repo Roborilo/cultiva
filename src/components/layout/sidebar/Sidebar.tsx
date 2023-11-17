@@ -39,7 +39,7 @@ export default function Sidebar() {
   ]
   
   return (
-    <div className="sidebar bg-cultiva-black">
+    <aside className="sidebar bg-cultiva-black">
       <div className="flex items-center px-5 py-2">
         <Input placeholder="Pesquisar" />
       </div>
@@ -52,6 +52,6 @@ export default function Sidebar() {
           />
         ))}
       </Category.Root>
-    </div>
+    </aside>
   )
 }
