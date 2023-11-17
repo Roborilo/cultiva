@@ -5,8 +5,6 @@ import './globals.css'
 import { Roboto } from 'next/font/google'
 import { NextAuthProvider } from './providers'
 import { cn } from '@/lib/utils/utils'
-import Sidebar from '@/components/layout/sidebar/Sidebar'
-import Header from '@/components/layout/header/Header'
 import { Theme } from '@radix-ui/themes'
 
 const roboto = Roboto({
@@ -30,11 +28,7 @@ export default function RootLayout({
       <body className={cn('w-screen h-screen', roboto.variable)}>
         <NextAuthProvider>
           <Theme className="w-full h-full layout" appearance="dark" accentColor="ruby" grayColor="gray" panelBackground="solid">
-            <Header />
-            <main className="main bg-cultiva-main w-full h-[5000px]">{children}</main>
-            <div className='sticky top-28'>
-              <Sidebar />
-            </div>
+            {children}
           </Theme>
         </NextAuthProvider>
       </body>

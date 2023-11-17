@@ -1,7 +1,8 @@
-import { Category } from "./Category"
-import Input from "./Form/Input"
+import { Category } from "."
+import Input from "../Form/Input"
+import SidebarRoot from "../Root"
 
-export default function Sidebar() {
+export default function SidebarCategory() {
   const categories = [
     {
       name: "Cultura",
@@ -39,7 +40,8 @@ export default function Sidebar() {
   ]
   
   return (
-    <aside className="sidebar bg-cultiva-black">
+    <SidebarRoot>
+      <h1 className="text-2xl font-bold pl-5 py-2">Categorias</h1>
       <div className="flex items-center px-5 py-2">
         <Input placeholder="Pesquisar" />
       </div>
@@ -52,6 +54,6 @@ export default function Sidebar() {
           />
         ))}
       </Category.Root>
-    </aside>
+    </SidebarRoot>
   )
 }
