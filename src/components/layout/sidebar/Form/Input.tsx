@@ -9,7 +9,7 @@ export default function Input({
 	handleChange 
 }: { 
 	placeholder: string; 
-	handleChange: React.Dispatch<React.SetStateAction<string>> 
+	handleChange?: React.Dispatch<React.SetStateAction<string>> 
 }) {
 	return (
 		<TextField.Root radius='full' className='bg-opaque bg-black rounded-full'>
@@ -21,6 +21,7 @@ export default function Input({
 				size={'3'} 
 				className="text-white font-medium text-lg" 
 				onChange={(e) => {
+					if (!handleChange) return
 					handleChange(e.target.value)
 				}}
 			/>

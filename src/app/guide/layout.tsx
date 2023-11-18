@@ -18,7 +18,7 @@ export default function GuideLayout({
 				<SidebarRoot>
 					<h1 className="text-2xl font-bold pl-5 py-2">Guia</h1>
 					<div className="flex items-center px-5 py-2">
-						<Input placeholder="Pesquisar Informações" handleChange={() => {}} />
+						<Input placeholder="Pesquisar Informações" />
 					</div>
 					<SidebarTopics>
 						<Topic name="Começo" />

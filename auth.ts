@@ -22,7 +22,6 @@ export const authOptions = {
           email: credentials.email,
           password: credentials.password,
         }
-        console.log(payload)
 
         const res = await fetch(
           'https://cultiva-backend.vercel.app/login',
