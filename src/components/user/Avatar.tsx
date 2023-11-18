@@ -2,12 +2,12 @@
 
 import * as Avatar from '@radix-ui/react-avatar'
 
-export default function UserAvatar() {
+export default function UserAvatar({ image }: { image?: string }) {
 	return (
     <Avatar.Root className="bg-blackA1 inline-flex h-28 w-28 select-none items-center justify-center overflow-hidden rounded-full align-middle">
       <Avatar.Image
         className="h-full w-full rounded-[inherit] object-cover"
-        src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+        src={image || 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp'} 
         alt="User picture"
       />
       <Avatar.Fallback
