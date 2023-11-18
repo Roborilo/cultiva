@@ -5,10 +5,15 @@ import { Category } from "."
 import Input from "../Form/Input"
 import SidebarRoot from "../Root"
 
+type Category = {
+  name: string
+  quantity: number
+}
+
 export default function SidebarCategory() {
   const [search, setSearch] = useState('')
 
-  const categories = [
+  const categories: Category[] = [
     {
       name: "Cultura",
       quantity: 10,
@@ -42,6 +47,22 @@ export default function SidebarCategory() {
       quantity: 10,
     },
   ]
+
+  const filteredCategories = (categories: Category[], search: string) => {
+    const filteredCategories = categories.filter((category: any) => category.name.toLowerCase().includes(search.toLowerCase()))
+
+    if (filteredCategories.length === 0) {
+      return <p className="text-lg font-semibold py-5 pl-1">Não há categorias encontradas</p>
+    }
+
+    return filteredCategories.map((category, index) => (
+      <Category.Content
+        key={index}
+        name={category.name}
+        quantity={category.quantity}
+      />
+    ))
+  }
   
   return (
     <SidebarRoot>
@@ -51,25 +72,19 @@ export default function SidebarCategory() {
       </div>
       <Category.Root>
         {search.length > 0 ? (
-          categories.map((category, index) => {
-            if (category.name.toLowerCase().includes(search.toLowerCase())) {
-              return (
-                <Category.Content
-                  key={index}
-                  name={category.name}
-                  quantity={category.quantity}
-                />
-              )
-            }
-          })
+          filteredCategories(categories, search)
         ) : (
-          categories.map((category, index) => (
-            <Category.Content
-              key={index}
-              name={category.name}
-              quantity={category.quantity}
-            />
-          ))
+          categories.length > 0 ? (
+            categories.map((category, index) => (
+              <Category.Content
+                key={index}
+                name={category.name}
+                quantity={category.quantity}
+              />
+            ))
+          ) : (
+            <p className="text-lg font-semibold py-5 pl-1">Não há categorias encontradas</p>
+          )
         )}
       </Category.Root>
     </SidebarRoot>
