@@ -18,3 +18,13 @@ html, body {
 .header { grid-area: header; }
 .sidebar { grid-area: sidebar; }
 .main { grid-area: main; }
+
+.background-create-account {
+  background-image: url('../../public/marisol-benitez-QvkAQTNj4zk-unsplash.jpg');
+  background-size:  cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(20, 20, 20, 0.5);
+  overflow-x: hidden;
+  opacity: 0.6;
+}
