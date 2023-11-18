@@ -2,39 +2,26 @@
 
 import { TextField } from '@radix-ui/themes'
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
-import { useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import React from 'react'
 
-export default function Input({ placeholder }: { placeholder: string }) {
-	const [search, setSearch] = useState('')
-	const inputRef = useRef(null)
-	const router = useRouter()
-
-	const handleSubmit = () => {
-		if (!search) {
-			return
-		}
-
-		console.log(search)
-		const queryString = encodeURIComponent(search)
-    router.push(`/guide?q=${queryString}`)
-	}
-	
+export default function Input({ 
+	placeholder, 
+	handleChange 
+}: { 
+	placeholder: string; 
+	handleChange: React.Dispatch<React.SetStateAction<string>> 
+}) {
 	return (
 		<TextField.Root radius='full' className='bg-opaque bg-black rounded-full'>
 			<TextField.Slot className='cursor-pointer'>
-				<MagnifyingGlassIcon height="20" width="20" className="text-white font-semibold cursor-pointer" onClick={handleSubmit}/>
+				<MagnifyingGlassIcon height="20" width="20" className="text-white font-semibold cursor-pointer" />
 			</TextField.Slot>
-			<TextField.Input 
-				ref={inputRef}
+			<TextField.Input
 				placeholder={placeholder} 
 				size={'3'} 
 				className="text-white font-medium text-lg" 
-				onChange={(e) => setSearch(e.target.value)}
-				onKeyDown={(e) => {
-					if (e.key === 'Enter') {
-						handleSubmit()
-					}
+				onChange={(e) => {
+					handleChange(e.target.value)
 				}}
 			/>
 		</TextField.Root>

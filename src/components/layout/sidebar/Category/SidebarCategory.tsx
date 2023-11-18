@@ -1,8 +1,13 @@
+'use client'
+
+import { useState } from "react"
 import { Category } from "."
 import Input from "../Form/Input"
 import SidebarRoot from "../Root"
 
 export default function SidebarCategory() {
+  const [search, setSearch] = useState('')
+
   const categories = [
     {
       name: "Cultura",
@@ -36,23 +41,36 @@ export default function SidebarCategory() {
       name: "Cultura",
       quantity: 10,
     },
-    
   ]
   
   return (
     <SidebarRoot>
       <h1 className="text-2xl font-bold pl-5 py-2">Categorias</h1>
       <div className="flex items-center px-5 py-2">
-        <Input placeholder="Pesquisar" />
+        <Input placeholder="Pesquisar" handleChange={setSearch} />
       </div>
       <Category.Root>
-        {categories.map((category) => (
-          <Category.Content
-            key={category.name}
-            name={category.name}
-            quantity={category.quantity}
-          />
-        ))}
+        {search.length > 0 ? (
+          categories.map((category, index) => {
+            if (category.name.toLowerCase().includes(search.toLowerCase())) {
+              return (
+                <Category.Content
+                  key={index}
+                  name={category.name}
+                  quantity={category.quantity}
+                />
+              )
+            }
+          })
+        ) : (
+          categories.map((category, index) => (
+            <Category.Content
+              key={index}
+              name={category.name}
+              quantity={category.quantity}
+            />
+          ))
+        )}
       </Category.Root>
     </SidebarRoot>
   )
