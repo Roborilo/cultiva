@@ -11,6 +11,7 @@ import { useState } from "react";
 import Input from "@/components/create-account/Input";
 import useCreateAccount from "@/components/customHooks/useCreateAccount";
 import { useRouter } from "next/navigation";
+import CreateAccountForm from "@/components/create-account/Form/Form";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,37 +19,6 @@ const poppins = Poppins({
 })
 
 export default function Home() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [checkbox, setCheckbox] = useState(false)
-  const router = useRouter()
-
-
-  const handleCreateAccount = async () => {
-    if (!checkbox) {
-      alert('Aceite os termos')
-      return
-    }
-    if (!name || !email || !password) {
-      alert('Preencha todos os campos')
-      return
-    }
-
-    const payload = {
-      name,
-      email,
-      password
-    }
-
-    const response = await useCreateAccount(payload)
-    if (response) {
-      alert('Conta criada com sucesso, por favor, realize o login')
-      router.push('/api/auth/signin')
-    } else {
-      alert('Erro ao criar a conta')
-    }
-  }
 
   return (
     <main className="flex h-screen w-screen">
@@ -64,26 +34,7 @@ export default function Home() {
       </section>
 
       <section className="flex w-1/2 h-full drop-shadow-lg justify-center items-center">
-        <div className="flex flex-col gap-7 w-full px-20">
-          <h1 className="text-6xl font-semibold">Crie sua conta do Cultiva</h1>
-          <p className="text-3xl italic font-thin">O melhor site de comércio de produtos sustentáveis</p>
-          <Input placeholder="Nome" handleChange={setName} />
-          <Input placeholder="Email" handleChange={setEmail} />
-          <Input placeholder="Senha" handleChange={setPassword} />
-          <div className="flex justify-between items-center">
-            <Text as="label" size="2">
-              <Flex gap="2" className="items-center">
-                <Checkbox size='3' onClick={() => setCheckbox(!checkbox)} /> 
-                <p className="text-2xl">Aceito os Termos de Uso</p>
-              </Flex>
-            </Text>
-            <button className="text-2xl">Esqueci minha senha</button>
-          </div>
-          <div className="flex justify-between items-center mt-2">
-            <Link href={"/api/auth/signin"} className="text-2xl py-3 px-12 bg-gray-600 text-white rounded-md hover:bg-gray-500">Já tenho uma conta</Link>
-            <button onClick={handleCreateAccount} className="text-2xl py-3 px-12 bg-green-600 text-white rounded-md hover:bg-green-500">Criar</button>
-          </div>
-        </div>
+        <CreateAccountForm />
       </section>
     </main>
   )
