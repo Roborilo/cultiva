@@ -19,7 +19,7 @@ const config: Config = {
         'dropdown-menu-dark': '#202020',
       },
       textColor: {
-        'cultiva-color': '42FF00',
+        'cultiva-color': '#42FF00',
       },
     },
   },
