@@ -1,19 +1,40 @@
 'use client'
 
+import ProductCard from '@/components/products/ProductCard'
+import ProductGrid from '@/components/products/product-grid'
 import { useSession } from 'next-auth/react'
 
 export default function Home() {
   const { data: session, status } = useSession()
 
   return (
-    <main>
-      <h1>Hello World</h1>
-      {status === 'loading' ? (
-        <div>Loading...</div>
+    <section className='m-20'>
+      {status === 'authenticated' ? (
+        <h1 className='text-3xl font-bold'>Olá, {session?.user?.name}! Separamos isso para você hoje.</h1>
       ) : (
-        <div>{session?.user?.email}</div>
+        <h1 className='text-3xl font-bold mb-4'>Produtos</h1>
       )}
-      {session && <div>{JSON.stringify(session, null, 2)}</div>}
-    </main>
+      <ProductGrid>
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+        <ProductCard name={'Product 1'} price={100} />
+      </ProductGrid>
+    </section>
   )
 }
