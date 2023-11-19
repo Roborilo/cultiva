@@ -110,7 +110,9 @@ export default function SellProductPage() {
     }
 		const response = await useCreateProduct(payload.name, payload.description, payload.manufacturingDate, payload.expirationDate, payload.category, payload.price, payload.quantity, jwt, selectedFiles)
 		if (response) {
-			console.log(response)
+			setAlertText('Produto criado com sucesso')
+			setModal(true)
+			router.push('/')
 		} else {
 			setAlertText('Erro ao criar o produto, se você não cadastrou seu cpf ou cnpj, não será capaz de criar um novo cadastro')
 			setModal(true)
