@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const BASEURL = 'https://cultiva-backend.vercel.app'
 
-type Category = {
+export type Category = {
 	id: string
 	name: string
 }

@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from "react"
-import { Category } from "."
+import { useEffect, useState } from "react"
 import Input from "../Form/Input"
 import SidebarRoot from "../Root"
+import useGetProducts, { Product } from "@/components/customHooks/useGetProducts"
+import { Category } from "."
 
 type Category = {
   name: string
@@ -12,41 +13,36 @@ type Category = {
 
 export default function SidebarCategory() {
   const [search, setSearch] = useState('')
+  const [products, setProducts] = useState<Product[]>([])
+  const [categories, setCategories] = useState<Category[]>([])
 
-  const categories: Category[] = [
-    {
-      name: "Cultura",
-      quantity: 10,
-    },
-    {
-      name: "Frutas",
-      quantity: 20,
-    },
-    {
-      name: "Vegetais",
-      quantity: 32,
-    },
-    {
-      name: "Horta",
-      quantity: 15,
-    },
-    {
-      name: "Lã",
-      quantity: 91,
-    },
-    {
-      name: "Eletrônicos",
-      quantity: 921,
-    },
-    {
-      name: "Cultura",
-      quantity: 10,
-    },
-    {
-      name: "Cultura",
-      quantity: 10,
-    },
-  ]
+  useEffect(() => {
+    useGetProducts()
+      .then((data) => {
+        setProducts(data)
+      })
+  }, [])
+
+  useEffect(() => {
+    setCategories(prevCategories => {
+      const updatedCategories = [...prevCategories];
+  
+      products.forEach(product => {
+        const existingCategory = updatedCategories.find(category => category.name === product.category.name);
+  
+        if (existingCategory) {
+          existingCategory.quantity += 1;
+        } else {
+          updatedCategories.push({
+            name: product.category.name,
+            quantity: 1,
+          });
+        }
+      });
+  
+      return updatedCategories;
+    });
+  }, [products]);
 
   const filteredCategories = (categories: Category[], search: string) => {
     const filteredCategories = categories.filter((category: any) => category.name.toLowerCase().includes(search.toLowerCase()))

@@ -4,17 +4,29 @@ import useGetProducts, { Product } from '@/components/customHooks/useGetProducts
 import ProductCard from '@/components/products/ProductCard'
 import ProductGrid from '@/components/products/product-grid'
 import { useSession } from 'next-auth/react'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { categoryContext } from './layout'
 
 export default function Home() {
   const { data: session, status } = useSession()
   const [products, setProducts] = useState<Product[]>()
+  const context = useContext(categoryContext)
+
+  if (!context) {
+    return null
+  }
+
+  const { category, setCategory } = context
 
   useEffect(() => {
     useGetProducts().then((data) => {
-      setProducts(data)
+      if (category) {
+        setProducts(data.filter((product) => product.category.name === category))
+      } else {
+        setProducts(data)
+      }
     })
-  }, [])
+  }, [category])
 
 
   return (

@@ -59,7 +59,7 @@ export default function MainLayout({
 				<UserContext.Provider value={user}>
 					{user ? (
 						<>
-							<main className="main bg-cultiva-main w-full h-[5000px]">
+							<main className="main bg-cultiva-main w-full">
 								{children}
 							</main>
 							<div className='sticky top-28'>
