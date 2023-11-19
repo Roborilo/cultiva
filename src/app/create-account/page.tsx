@@ -6,11 +6,6 @@ import Link from "next/link";
 import { cn } from "@/lib/utils/utils";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
-import { Checkbox, Flex, Text } from "@radix-ui/themes";
-import { useState } from "react";
-import Input from "@/components/create-account/Input";
-import useCreateAccount from "@/components/customHooks/useCreateAccount";
-import { useRouter } from "next/navigation";
 import CreateAccountForm from "@/components/create-account/Form/Form";
 
 const poppins = Poppins({

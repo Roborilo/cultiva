@@ -31,7 +31,6 @@ type Errors = {
 
 const resolver: Resolver<FormValues> = async (values) => {
   const errors: Partial<Errors> = {}
-	console.log(values)
 
   if (!values.name) {
     errors.name = { type: 'required', message: 'Name is required.' }

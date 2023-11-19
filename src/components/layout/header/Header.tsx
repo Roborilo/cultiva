@@ -14,7 +14,7 @@ export default function Header() {
       <div className="flex gap-5 items-center">
         <HeaderLogo />
         <div className="flex gap-5 justify-between content-center">
-          <NavLink href="#">
+          <NavLink href="/sell-product">
             <MdSell className="text-2xl"/>
             Vender
           </NavLink>
