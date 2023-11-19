@@ -10,7 +10,7 @@ export default function MainLayout({
 	return (
 		<>
 			<Header />
-			<main className="main bg-cultiva-main w-full h-[5000px]">{children}</main>
+			<main className="main bg-cultiva-main w-full">{children}</main>
 			<div className='sticky top-28'>
 				<SidebarCategory />
 			</div>

@@ -13,7 +13,7 @@ export default function GuideLayout({
 	return (
 		<>
 			<Header />
-			<main className="main bg-cultiva-main w-full h-[5000px]">{children}</main>
+			<main className="main bg-cultiva-main w-full">{children}</main>
 			<div className='sticky top-28'>
 				<SidebarRoot>
 					<h1 className="text-2xl font-bold pl-5 py-2">Guia</h1>

@@ -27,6 +27,6 @@ export default async function useCreateAccount(payload: Payload) {
       return false
     }
   } catch (error) {
-    console.error('login error:', error)
+    console.error('create error:', error)
   }
 }

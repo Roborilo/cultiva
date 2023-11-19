@@ -1,11 +1,21 @@
 'use client'
 
+import useGetProducts, { Product } from '@/components/customHooks/useGetProducts'
 import ProductCard from '@/components/products/ProductCard'
 import ProductGrid from '@/components/products/product-grid'
 import { useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const { data: session, status } = useSession()
+  const [products, setProducts] = useState<Product[]>()
+
+  useEffect(() => {
+    useGetProducts().then((data) => {
+      setProducts(data)
+    })
+  }, [])
+
 
   return (
     <section className='m-20'>
@@ -15,25 +25,9 @@ export default function Home() {
         <h1 className='text-5xl font-bold mb-8'>Produtos</h1>
       )}
       <ProductGrid>
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
-        <ProductCard name={'Product 1'} price={100} />
+        {products?.map((product) => (
+          <ProductCard key={product.id} name={product.name} price={Number(product.price)} imageUrl={product.images[0]} />
+        ))}
       </ProductGrid>
     </section>
   )
