@@ -7,6 +7,29 @@ html, body {
   overflow-x: hidden;
 }
 
+html::-webkit-scrollbar {
+  width: 0px;
+  display: none;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-color: rgb(170,68,63) transparent;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgb(170,68,63);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgb(153, 58, 53);
+}
+
 .layout {
   display: grid;
   grid:

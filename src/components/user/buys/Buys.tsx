@@ -20,7 +20,7 @@ export default function Buys() {
 			<h1 className='text-3xl font-bold mb-4'>Compras</h1>
       <ProductGrid>
         {buys?.map((buy) => (
-          <ProductCard key={buy.productId} name={buy.product.name} price={Number(buy.product.price)} imageUrl={buy.product.images[0]} />
+          <ProductCard key={buy.productId} id={buy.productId} name={buy.product.name} price={Number(buy.product.price)} imageUrl={buy.product.images[0]} />
         ))}
       </ProductGrid>
     </section>

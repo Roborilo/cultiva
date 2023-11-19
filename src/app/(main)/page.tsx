@@ -26,7 +26,7 @@ export default function Home() {
       )}
       <ProductGrid>
         {products?.map((product) => (
-          <ProductCard key={product.id} name={product.name} price={Number(product.price)} imageUrl={product.images[0]} />
+          <ProductCard key={product.id} id={product.id} name={product.name} price={Number(product.price)} imageUrl={product.images[0]} />
         ))}
       </ProductGrid>
     </section>

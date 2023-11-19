@@ -71,7 +71,9 @@ export const authOptions = {
 
       return token
     },
-
+    async redirect() {
+      return '/'
+    },
     async session({ session, token }: { session: any; token: any }) {
       if (token.userData) {
         session.user = token.userData

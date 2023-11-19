@@ -16,10 +16,10 @@ const config: Config = {
       backgroundColor: {
         'cultiva-black': '#141414',
         'cultiva-main': '#242424',
-        'dropdown-menu-dark': '#202020',
+        'dropdown-menu-dark': '#3F3F46',
       },
       textColor: {
-        'cultiva-color': '42FF00',
+        'cultiva-color': '#42FF00',
       },
     },
   },

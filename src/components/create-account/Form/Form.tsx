@@ -94,7 +94,7 @@ export default function CreateAccountForm() {
 			{errors.name && <p className="text-red-500 text-xl">{errors.name.message}</p>}
 			<TextField.Input placeholder="Email" size={'3'} radius="small" className="py-6 text-xl" required {...register('email')} />
 			{errors.email && <p className="text-red-500 text-xl">{errors.email.message}</p>}
-			<TextField.Input placeholder="Senha" size={'3'} radius="small" className="py-6 text-xl" required {...register('password')} />
+			<TextField.Input placeholder="Senha" size={'3'} type="password" radius="small" className="py-6 text-xl" required {...register('password')} />
 			{errors.password && <p className="text-red-500 text-xl">{errors.password.message}</p>}
 			<div className="flex justify-between items-center">
 				<Text as="label" size="2">
