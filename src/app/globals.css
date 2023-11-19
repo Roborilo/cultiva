@@ -38,6 +38,14 @@ html::-webkit-scrollbar-thumb:hover {
     / auto 1fr;
 }
 
+.reverse-layout {
+  display: grid;
+  grid:
+    "header header" 112px
+    "main sidebar" 1fr
+    / 1fr auto;
+}
+
 .header { grid-area: header; }
 .sidebar { grid-area: sidebar; }
 .main { grid-area: main; }

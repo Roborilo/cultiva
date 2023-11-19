@@ -15,7 +15,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: 'Cultiva e-commerce',
-  description: 'Sua loja de produtos sustentveis',
+  description: 'Sua loja de produtos sustentáveis',
 }
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={cn('w-screen h-screen', roboto.variable)}>
         <NextAuthProvider>
           <Theme className="w-full h-full layout" appearance="dark" accentColor="ruby" grayColor="gray" panelBackground="solid">

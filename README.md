@@ -1,18 +1,11 @@
-TODO: 
-
-- HEADER
-DONE
-
-- HEADER POPOVER
 TODO
 
-# INDEX
+ - favorites page
 
-- SIDEBAR
-TODO
+ - guide page
 
-- MAIN
-TODO
+ - create comment page
 
-- CAROUSEL
-TODO
+	- PAYMENT PAGE
+
+ - product page ==>> HIGH PRIORITY
