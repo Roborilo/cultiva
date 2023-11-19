@@ -17,12 +17,16 @@ export default function Buys() {
 
 	return (
 		<section className='m-20'>
-			<h1 className='text-3xl font-bold mb-4'>Compras</h1>
-      <ProductGrid>
-        {buys?.map((buy) => (
-          <ProductCard key={buy.productId} id={buy.productId} name={buy.product.name} price={Number(buy.product.price)} imageUrl={buy.product.images[0]} />
-        ))}
-      </ProductGrid>
+			<h1 className='text-3xl font-bold mb-8'>Compras</h1>
+      {buys ? (  
+        <ProductGrid>
+          {buys?.map((buy) => (
+            <ProductCard key={buy.productId} id={buy.productId} name={buy.product.name} price={Number(buy.product.price)} imageUrl={buy.product.images[0]} />
+          ))}
+        </ProductGrid>
+      ) : (
+        <p className="text-2xl font-semibold mt-2">O usuário ainda não fez nenhuma compra.</p>
+      )}
     </section>
 	)
 }

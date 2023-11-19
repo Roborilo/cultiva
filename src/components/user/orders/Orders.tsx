@@ -17,12 +17,16 @@ export default function Orders() {
   
 	return (
 		<section className='m-20'>
-			<h1 className='text-3xl font-bold mb-4'>Pedidos</h1>
-      <ProductGrid>
-        {products?.map((product) => (
-          <ProductCard key={product.id} id={product.id} name={product.name} price={Number(product.price)} imageUrl={product.images[0]} />
-        ))}
-      </ProductGrid>
+			<h1 className='text-3xl font-bold mb-8'>Pedidos</h1>
+      {products ? (
+        <ProductGrid>
+          {products?.map((product) => (
+            <ProductCard key={product.id} id={product.id} name={product.name} price={Number(product.price)} imageUrl={product.images[0]} />
+          ))}
+        </ProductGrid>
+      ) : (
+        <p className="text-2xl font-semibold mt-2">O usuário ainda não fez nenhum pedido.</p>
+      )}
     </section>
 	)
 }

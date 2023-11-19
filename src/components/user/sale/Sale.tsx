@@ -16,12 +16,16 @@ export default function Sale() {
   
   return (
 		<section className='m-20'>
-			<h1 className='text-3xl font-bold mb-4'>Vendas</h1>
-      <ProductGrid>
-        {sales?.map((sale) => (
-          <ProductCard key={sale.product.id} id={sale.product.id} name={sale.product.name} price={Number(sale.product.price)} imageUrl={sale.product.images[0]} />
-        ))}
-      </ProductGrid>
+			<h1 className='text-3xl font-bold mb-8'>Vendas</h1>
+      {sales ? (  
+        <ProductGrid>
+          {sales?.map((sale) => (
+            <ProductCard key={sale.product.id} id={sale.product.id} name={sale.product.name} price={Number(sale.product.price)} imageUrl={sale.product.images[0]} />
+          ))}
+        </ProductGrid>
+      )  : (
+        <p className="text-2xl font-semibold mt-2">O usuário ainda não fez nenhuma venda.</p>
+      )}
     </section>
 	)
 }
