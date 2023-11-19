@@ -1,5 +1,6 @@
 import SwitchDemo from "./components/Switch";
 import ChangePassword from "./components/change-password";
+import CreateProducer from "./components/create-producer";
 import DeleteAccountButton from "./components/delete-account-button";
 
 export default function Config() {
@@ -16,6 +17,10 @@ export default function Config() {
 			<section className="flex flex-col gap-4 w-full mt-12">
 				<h2 className="text-3xl font-semibold w-full border-b pb-2">Mudar sua senha</h2>
 				<ChangePassword />
+			</section>
+			<section className="flex flex-col gap-4 w-full mt-12">
+				<h2 className="text-3xl font-semibold w-full border-b pb-2">Virar produtor</h2>
+				<CreateProducer />
 			</section>
 			<section className="flex flex-col gap-4 w-full mt-12">
 				<h2 className="text-3xl font-semibold w-full border-b pb-2">Deletar conta</h2>
