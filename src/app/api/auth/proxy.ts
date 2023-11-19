@@ -10,7 +10,10 @@ export default async function proxy(token: string): Promise<any> {
         },
       },
     )
-    const user = await response.json()
+    let user = await response.json()
+    console.log(user)
+    user.accessToken = token
+    console.log(user)
     return user
   } else {
     return null

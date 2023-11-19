@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <section className='m-20'>
       {status === 'authenticated' ? (
-        <h1 className='text-3xl font-bold'>Olá, {session?.user?.name}! Separamos isso para você hoje.</h1>
+        <h1 className='text-5xl font-bold mb-8'>Olá, {session?.user?.name}! Separamos isso para você hoje.</h1>
       ) : (
-        <h1 className='text-3xl font-bold mb-4'>Produtos</h1>
+        <h1 className='text-5xl font-bold mb-8'>Produtos</h1>
       )}
       <ProductGrid>
         <ProductCard name={'Product 1'} price={100} />

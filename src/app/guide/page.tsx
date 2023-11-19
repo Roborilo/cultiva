@@ -1,8 +1,6 @@
-'use client';
-
 export default function Guide() {
   return (
-    <div className="flex flex-col space-y-4 text-white">
+    <div className="flex flex-col space-y-4 text-white my-2">
       <div className="py-20 gap-8 grid container mx-auto bg-cultiva-black rounded-lg place-content-center justify-items-center ">
         <div className="flex items-center text-5xl font-extrabold">
           Bem-vindo(a) à
@@ -11,10 +9,10 @@ export default function Guide() {
           </span>
         </div>
       </div>
-      <section className="py-20 flex container mx-auto bg-cultiva-black rounded-lg justify-start font-semibold">
-      <p className="text-lime-400">Introdução</p>
-      <p className="text-white text-2xl	">FaQ/ QnA</p>
+      <section className="py-20 flex flex-col container mx-auto gap-1 bg-cultiva-black rounded-lg justify-start font-bold">
+      <p className="text-cultiva-color mx-8 text-xl">Introdução</p>
+      <p className="text-white mx-8 text-4xl	">FaQ/ QnA</p>
       </section>
     </div>
-  );
+  )
 }
