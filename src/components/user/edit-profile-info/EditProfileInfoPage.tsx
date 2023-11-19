@@ -2,6 +2,7 @@
 
 import Input from "@/components/create-account/Input"
 import { useState } from "react"
+import EditContact from "./Form/edit-contact"
 
 export default function EditProfileInfo() {
 	const [name, setName] = useState('')
@@ -36,19 +37,7 @@ export default function EditProfileInfo() {
 				<h2 className="text-3xl font-semibold w-full border-b pb-2">Informações de contato</h2>
 				<div className="flex justify-between items-start w-full">
 					<p className="text-2xl font-medium w-1/3">Aqui estarão os contatos utilizados no site para te conectar aos seus compradores ou vendedores.</p>
-					<div className="flex flex-col gap-4 w-2/5">
-						<Input placeholder="Telefone de Contato" handleChange={setTelephone} />
-						<div className="flex gap-4 w-full">
-							<Input placeholder="Rua" handleChange={setName} />
-							<Input placeholder="Número" handleChange={setEmail} />
-						</div>
-						<Input placeholder="Cidade" handleChange={setEmail} />
-						<div className="flex gap-4 w-full">
-							<Input placeholder="CEP" handleChange={setName} />
-							<Input placeholder="Estado" handleChange={setEmail} />
-						</div>
-						<button className="text-2xl font-medium py-2.5 px-6 bg-green-500 rounded-xl w-4/12">Salvar</button>
-					</div>
+					<EditContact />
 				</div>
 			</section>
 		</section>
