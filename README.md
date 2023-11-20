@@ -1,13 +1,9 @@
-TODO
+## TODO
 
  - favorites page
 
- - guide page
-
  - create comment page
 
-	- PAYMENT PAGE
-
-- Pagina Main -> click if (categoria) == category.name ->> setPageContext(null) 
+ - PAYMENT PAGE - LAYOUT FINISHED
 
  - product page ==>> HIGH PRIORITY
