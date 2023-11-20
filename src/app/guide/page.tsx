@@ -1,21 +1,76 @@
+'use client'
+
+import { useContext } from "react";
+import { pageContext } from "./layout";
+import Introduction from "@/components/guide/introduction/Introduction";
+import Comeco from "@/components/guide/comeco/Comeco";
+import Cultura from "@/components/guide/cultura/Cultura";
+import Frutas from "@/components/guide/frutas/Frutas";
+import Vegetables from "@/components/guide/vegetais/Vegetais";
+import Horta from "@/components/guide/horta/Horta";
+import ModaSustentavel from "@/components/guide/moda/ModaSustentavel";
+import CasaSustentavel from "@/components/guide/casa/CasaSustentavel";
+import BelezaConsciente from "@/components/guide/beleza/BelezaConsciente";
+import ViagemSustentavel from "@/components/guide/viagem/ViagemSustentavel";
+import EducacaoAmbiental from "@/components/guide/educacao/EducacaoAmbiental";
+import ComunidadeCultiva from "@/components/guide/comunidade/ComunidadeCultiva";
+import About from "@/components/guide/about/About";
+
 export default function Guide() {
-  return (
-    <div className="flex flex-col space-y-4 text-white my-2 mx-2">
-      <div className="py-20 gap-8 grid container mx-auto bg-cultiva-black rounded-lg place-content-center justify-items-center ">
-        <div className="flex items-center text-5xl font-extrabold">
-          Bem-vindo(a) à
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-950 to-red-500">
-            &nbsp;Wiki
-          </span>
-        </div>
-      </div>
-      <section className="py-20 flex flex-col container mx-auto gap-1 bg-cultiva-black rounded-lg justify-start font-bold">
-      <p className="text-cultiva-color mx-8 text-xl">Introdução</p>
-      <p className="text-white mx-8 text-4xl	">FaQ/ QnA</p>
-      {/* Aqui tem que colocar o chatGPT meter umas perguntas e umas respostas mesmo, até faria mas to sem acesso a minha conta :)
-      e também tem que fazer o sobre nós/ história */}
-      </section>
-    </div>
-  )
+  const page = useContext(pageContext)
+
+  if (page === 'introducao') {
+    return <Introduction />
+  }
+
+  if (page === 'comeco') {
+    return <Comeco />
+  }
+
+  if (page === 'cultura') {
+    return <Cultura />
+  }
+
+  if (page === 'frutas') {
+    return <Frutas />
+  }
+
+  if (page === 'vegetais') {
+    return <Vegetables />
+  }
+
+  if (page === 'horta') {
+    return <Horta />
+  }
+
+  if (page === 'moda') {
+    return <ModaSustentavel />
+  }
+
+  if (page === 'casa') {
+    return <CasaSustentavel />
+  }
+
+  if (page === 'beleza') {
+    return <BelezaConsciente />
+  }
+
+  if (page === 'viagem') {
+    return <ViagemSustentavel />
+  }
+
+  if (page === 'educacao') {
+    return <EducacaoAmbiental />
+  }
+
+  if (page === 'comunidade') {
+    return <ComunidadeCultiva />
+  }
+
+  if (page === 'sobre') {
+    return <About />
+  }
+
+  return <Introduction />
 }
 
