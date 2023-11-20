@@ -78,6 +78,7 @@ export default function MainLayout({
 					product: null,
 					error: true
 				})
+				return
 			}
 			setContext({
 				isLoading: false,

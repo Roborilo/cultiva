@@ -39,21 +39,27 @@ export default function SidebarProduct() {
 		<SidebarRoot>
 			<div className="flex flex-col gap-4 w-11/12 p-4 mx-4 my-3 items-center justify-start">
 				<div className="flex items-center justify-between gap-6 mr-2">
-					<Stars />
+					{product?.rating && <Stars rating={rating} />}
 					<p className="text-sm font-thin">Comprado por {product?.buys.length} pessoas</p>
 				</div>
 				<h1 className="text-4xl font-bold self-start ml-3">{product?.name}</h1>
 				<h2 className="text-2xl font-bold self-start ml-3 rounded-lg bg-green-700 text-white p-2">R${Number(product?.price).toFixed(2)}</h2>
 				<div className="flex flex-col items-center justify-between gap-1 w-full">
 					<p className="text-sm font-thin text-start self-start">Oferecido por:</p>
-					<UserPreview user={{ name: product?.user.name, icon: product?.user.icon, rate: rating, sells: product?.user.sales.length }} />
+					<UserPreview user={{ name: product?.user.name, icon: product?.user.icon, rate: product?.user.rating, sells: product?.user.sales.length }} />
 				</div>
 				<div className="flex items-center justify-between w-full p-3.5 rounded-full border border-gray-800 bg-cultiva-main">
 					<p className="text-xl font-semibold">Quantidade</p>
 					<div className="flex gap-2.5 justify-center items-center rounded-full px-1.5 border border-white">
 						<button className="text-2xl font-bold pl-1.5" onClick={() => setCount(count === 0 ? 0 : count - 1)}>-</button>
 						<p className="text-xl font-semibold border-l border-r border-white px-2.5">{count}</p>
-						<button className="text-2xl font-bold pr-1.5" onClick={() => setCount(count + 1)}>+</button>
+						<button className="text-2xl font-bold pr-1.5" onClick={() => {
+							if (product) {
+								if (count < product?.quantity) {
+									setCount(count + 1)
+								}
+							}
+						}}>+</button>
 					</div>
 				</div>
 				<div className="flex items-center justify-center gap-3 w-full">

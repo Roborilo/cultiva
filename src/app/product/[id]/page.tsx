@@ -26,8 +26,6 @@ export default function ProductPage() {
 		)
 	}
 
-	console.log(product)
-
 	return (
 		<section className='flex flex-col gap-4 justify-center items-center w-10/12 mt-6'>
 			<article className='flex gap-4 justify-center items-start w-full h-[510px] mb-4'>
@@ -42,14 +40,16 @@ export default function ProductPage() {
 				<CreateComment image={product?.user.icon} />
 				{
 					product?.comments.map((comment) => (
-						<Comment
-							key={comment.id}
-							name={comment.user.name}
-							icon={comment.user.icon}
-							content={comment.content}
-							rating={comment.rating}
-							createdAt={comment.createdAt}
-						/>
+						comment.user && (
+							<Comment
+								key={comment.id}
+								name={comment.user.name}
+								icon={comment.user.icon}
+								content={comment.content}
+								rating={comment.rating}
+								createdAt={comment.createdAt}
+							/>
+						)
 					))
 				}
 			</article>
