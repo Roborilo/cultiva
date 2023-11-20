@@ -2,9 +2,9 @@
 
 import * as Avatar from '@radix-ui/react-avatar'
 
-export default function UserAvatar({ image }: { image?: string }) {
+export default function UserAvatar({ image, wh }: { image?: string, wh?: string }) {
 	return (
-    <Avatar.Root className="bg-blackA1 inline-flex h-28 w-28 select-none items-center justify-center overflow-hidden rounded-full align-middle">
+    <Avatar.Root className={`${wh || 'w-28 h-28'} bg-blackA1 inline-flex select-none items-center justify-center overflow-hidden rounded-full align-middle`}>
       <Avatar.Image
         className="h-full w-full rounded-[inherit] object-cover"
         src={image || 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp'} 
