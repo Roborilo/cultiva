@@ -26,6 +26,12 @@ export default function GuideLayout({
 						<Topic name="Frutas" />
 						<Topic name="Vegetais" />
 						<Topic name="Horta" />
+						<Topic name="Moda Sustentável" />
+						<Topic name="Casa Sustentável" />
+						<Topic name="Beleza Consciente" />
+						<Topic name="Viagem Sustentável" />
+						<Topic name="Educação Ambiental" />
+						<Topic name="Comunidade" />
 						<Topic name="Sobre Nós" />
 					</SidebarTopics>
 				</SidebarRoot>
