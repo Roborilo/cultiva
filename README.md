@@ -2,8 +2,10 @@
 
  - favorites page
 
+# BACKEND CONECTION
+
  - create comment page
 
- - PAYMENT PAGE - LAYOUT FINISHED
+ - PAYMENT PAGE 
 
- - product page ==>> HIGH PRIORITY
+ - product page 
