@@ -8,10 +8,10 @@ export default function MainLayout({
   children: React.ReactNode
 }) {
 	return (
-		<div className="w-screen h-screen reverse-layout overflow-hidden">
+		<div className="w-screen reverse-layout">
 			<Header />
-			<main className="main bg-cultiva-main w-full flex justify-center items-start">{children}</main>
-			<div className='sticky top-28 overflow-y-auto sidebar w-[400px]'>
+			<main className="main bg-cultiva-main w-full h-full flex justify-center items-start pb-4">{children}</main>
+			<div className='sticky top-24 sidebar w-[400px]'>
 				<SidebarProduct />
 			</div>
 		</div>
