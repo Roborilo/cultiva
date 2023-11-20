@@ -17,7 +17,7 @@ export default function Sells() {
 	return (
 		<section className='m-20'>
 			<h1 className='text-3xl font-bold mb-8'>Vendendo</h1>
-      {products ? (      
+      {products && products.length > 0 ? (      
         <ProductGrid>
           {products?.map((product) => (
             <ProductCard key={product.id} id={product.id} name={product.name} price={Number(product.price)} imageUrl={product.images[0]} />

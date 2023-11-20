@@ -6,6 +6,8 @@ import { IoSettingsSharp } from "react-icons/io5"
 import { useContext, useEffect, useState } from "react";
 import { PageContext, UserContext } from "@/app/user/[id]/layout";
 import { useSession } from "next-auth/react";
+import { MdRequestPage, MdSell } from "react-icons/md";
+import { RiMoneyDollarCircleFill, RiPriceTag2Fill  } from "react-icons/ri";
 import { usePathname } from "next/navigation";
 
 export default function SidebarUser({ setPage }: { setPage: React.Dispatch<React.SetStateAction<string>> }) {
@@ -99,19 +101,19 @@ export default function SidebarUser({ setPage }: { setPage: React.Dispatch<React
 				<h1 className="text-4xl font-bold">Loja</h1>
 				<div className="flex flex-col gap-6 px-4 w-full">
 					<div className={`flex gap-4 items-center justify-start rounded-lg p-3 cursor-pointer w-full, ${page === "sales" && "bg-green-700"}`}  onClick={() => setPage("sales")}>
-						<FaCircleUser className='text-4xl' />
+						<RiPriceTag2Fill className='text-4xl' />
 						<p className="text-2xl">Vendas</p>
 					</div>
 					<div className={`flex gap-4 items-center justify-start rounded-lg p-3 cursor-pointer w-full, ${page === "orders" && "bg-green-700"}`}  onClick={() => setPage("orders")}>
-						<IoSettingsSharp className='text-4xl' />
+						<MdRequestPage className='text-4xl' />
 						<p className="text-2xl">Pedidos</p>
 					</div>
 					<div className={`flex gap-4 items-center justify-start rounded-lg p-3 cursor-pointer w-full, ${page === "sells" && "bg-green-700"}`}  onClick={() => setPage("sells")}>
-						<IoSettingsSharp className='text-4xl' />
+						<MdSell className='text-4xl' />
 						<p className="text-2xl">Vendendo</p>
 					</div>
 					<div className={`flex gap-4 items-center justify-start rounded-lg p-3 cursor-pointer w-full, ${page === "buys" && "bg-green-700"}`}  onClick={() => setPage("buys")}>
-						<IoSettingsSharp className='text-4xl' />
+						<RiMoneyDollarCircleFill className='text-4xl' />
 						<p className="text-2xl">Compras</p>
 					</div>
 				</div>

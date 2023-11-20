@@ -37,7 +37,7 @@ export default function EditProfile() {
 
 		const response = await useUpdateUser(token, name, email, icon)
 		if (response) {
-			setTextAlert('Informações alteradas com sucesso')
+			setTextAlert('Informações alteradas com sucesso, recomendamos que faça login novamente para uma melhor experiência')
 			setModal(true)
 		} else {
 			setTextAlert('Erro ao alterar as informações, por favor tente novamente e verifique se os dados são válidos')
