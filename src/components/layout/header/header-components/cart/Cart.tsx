@@ -1,19 +1,20 @@
 'use client'
 
 import * as Popover from '@radix-ui/react-popover';
-import { MixerHorizontalIcon, Cross2Icon } from '@radix-ui/react-icons';
+import { Cross2Icon } from '@radix-ui/react-icons';
 import { FaShoppingCart } from 'react-icons/fa';
 import ProductPreview from './ProductPreview';
-
-type Product = {
-	name: string
-	quantity: number
-	price: number
-	image: string
-}
+import { useCart } from '@/components/product/AddToCart';
+import Link from 'next/link';
 
 export default function CartPopover() {
-	const products: Product[] | [] = []
+	const { products, dec } = useCart();
+
+	const handleDecAll = () => {
+		products.forEach((product) => {
+			dec(product.id);
+		});
+	};
 
 	return (
 			<Popover.Root>
@@ -33,21 +34,22 @@ export default function CartPopover() {
 							<>
 								{products.map((product) => (
 									<ProductPreview
-										key={product.name}
+										key={product.id}
+										id={product.id}
 										name={product.name}
 										quantity={product.quantity}
-										price={product.price}
-										image={product.image}
+										price={Number(product.price)}
+										image={product.images[0]}
 									/>
 								))}
 								<div>
 									<p className="font-semibold text-base mt-2 flex justify-between items-center pb-2 border-b px-2">
 										<span>Total</span>
-										<span>R$1960,00</span>
+										<span>R${products.reduce((total, product) => total + Number(product.price) * product.quantity, 0).toFixed(2)}</span>
 									</p>
 									<div className="flex justify-between mt-3 px-2">
-										<button className='rounded-md py-1 px-2.5 font-semibold text-xl bg-red-600'>Cancelar</button>
-										<button className='rounded-md py-1 px-2.5 font-semibold text-xl bg-green-500'>Finalizar</button>
+										<button className='rounded-md py-1 px-2.5 font-semibold text-xl bg-red-600' onClick={handleDecAll}>Cancelar</button>
+										<Link href={'/purchase'} className='rounded-md py-1 px-2.5 font-semibold text-xl bg-green-500'>Finalizar</Link>
 									</div>
 								</div>
 							</>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa'
 
-export default function Stars({ rating }: { rating: number[] | number }) {
+export default function Stars({ rating }: { rating: number[] }) {
 	const [ratin, setRatin] = useState({
 		rate: 0,
 		fullStars: 0,
@@ -10,6 +10,15 @@ export default function Stars({ rating }: { rating: number[] | number }) {
 	})
 
 	useEffect(() => {
+		if (!rating) {
+			setRatin({
+				rate: 3,
+				fullStars: 3,
+				hasHalfStar: false,
+				emptyStars: 2
+			})
+			return
+		}
 		if (typeof rating === 'number') {
 			setRatin({
 				rate: rating,

@@ -3,10 +3,11 @@
 import classNames from 'classnames';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
-import { forwardRef } from 'react';
+import { forwardRef, useContext, useEffect } from 'react';
 import DeliveryForm from './Forms/DeliveryForm';
 import PaymentForm from './Forms/PaymentForm';
 import { useState } from 'react';
+import { readyContext } from '@/app/purchase/layout';
 
 type PayloadA = {
 	street?: string
@@ -24,11 +25,35 @@ type PayloadB = {
 	cvc?: number
 }
 
+const verifyIfHasValue = (payload: PayloadA | PayloadB | undefined) => {
+  for (const key in payload) {
+    // @ts-ignore
+    if (payload[key] !== '') {
+      return true
+    } else {
+      return false
+    }
+  }
+}
+
 export default function AccordionDemo() {
   const [checked, setChecked] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [payload, setPayload] = useState<PayloadA | undefined>();
   const [payload2, setPayload2] = useState<PayloadB | undefined>();
+  const context = useContext(readyContext)
+
+  if (!context) {
+    return null
+  }
+
+  const { ready, setReady } = context
+
+  useEffect(() => {
+    if ((checked || verifyIfHasValue(payload)) && verifyIfHasValue(payload2)) {
+      setReady(true)
+    }
+  }, [payload, checked, payload2])
 
   return (
     <Accordion.Root

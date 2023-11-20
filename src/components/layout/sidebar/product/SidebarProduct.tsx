@@ -7,6 +7,8 @@ import { BsFillBookmarkPlusFill } from "react-icons/bs";
 import { useContext, useEffect, useState } from "react";
 import { productContext } from "@/app/product/[id]/layout";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import AddToCart from "@/components/product/AddToCart";
+import AddToFav from "@/components/product/AddToFav";
 
 export default function SidebarProduct() {
 	const { isLoading, product, error} = useContext(productContext)
@@ -39,14 +41,14 @@ export default function SidebarProduct() {
 		<SidebarRoot>
 			<div className="flex flex-col gap-4 w-11/12 p-4 mx-4 my-3 items-center justify-start">
 				<div className="flex items-center justify-between gap-6 mr-2">
-					{product?.rating && <Stars rating={rating} />}
+					<Stars rating={[4, 4]} />
 					<p className="text-sm font-thin">Comprado por {product?.buys.length} pessoas</p>
 				</div>
 				<h1 className="text-4xl font-bold self-start ml-3">{product?.name}</h1>
 				<h2 className="text-2xl font-bold self-start ml-3 rounded-lg bg-green-700 text-white p-2">R${Number(product?.price).toFixed(2)}</h2>
 				<div className="flex flex-col items-center justify-between gap-1 w-full">
 					<p className="text-sm font-thin text-start self-start">Oferecido por:</p>
-					<UserPreview user={{ name: product?.user.name, icon: product?.user.icon, rate: product?.user.rating, sells: product?.user.sales.length }} />
+					<UserPreview user={{ name: product?.user.name, icon: product?.user.icon, rate: product?.user.rating || 0, sells: product?.user.sales.length }} />
 				</div>
 				<div className="flex items-center justify-between w-full p-3.5 rounded-full border border-gray-800 bg-cultiva-main">
 					<p className="text-xl font-semibold">Quantidade</p>
@@ -63,12 +65,8 @@ export default function SidebarProduct() {
 					</div>
 				</div>
 				<div className="flex items-center justify-center gap-3 w-full">
-					<button className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-						Adicionar ao Carrinho
-					</button>
-					<button className="focus:outline-none text-black bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-50 font-medium rounded-lg text-xl px-3.5 py-3.5 me-2 mb-2">
-						<BsFillBookmarkPlusFill />
-					</button>
+					<AddToCart />
+					<AddToFav />
 				</div>
 				<div className="flex flex-col gap-3 w-full border-t border-b border-white py-3 px-2.5">
 					<h3 className='font-semibold text-xl'>Informações do Produto:</h3>

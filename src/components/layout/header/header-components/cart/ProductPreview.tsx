@@ -1,7 +1,9 @@
+import { useCart } from "@/components/product/AddToCart";
 import { cn } from "@/lib/utils/utils";
 import { CiCircleMinus } from "react-icons/ci";
 
 type ProductPreviewProps = {
+	id: string
 	name: string
 	quantity: number
 	price: number
@@ -9,9 +11,9 @@ type ProductPreviewProps = {
 	hasBorders?: boolean
 }
 
-// TODO: IMPLEMENT CART POPUP
+export default function ProductPreview({ id, name, quantity, price, image, hasBorders }: ProductPreviewProps) {
+	const { dec } = useCart();
 
-export default function ProductPreview({ name, quantity, price, image, hasBorders }: ProductPreviewProps) {
 	return (
 		<div className={cn("flex justify-between items-center w-full mt-3 py-2", hasBorders ? "border-b border-t" : "")}>
 			<div className="flex gap-1">
@@ -21,7 +23,7 @@ export default function ProductPreview({ name, quantity, price, image, hasBorder
 			<div>
 				<p className='text-base font-semibold'>R${price.toFixed(2)}</p>
 				<button className="font-semibold text-base flex gap-2 items-center">
-					<CiCircleMinus className='text-red-500 font-semibold' onClick={() => {}} />
+					<CiCircleMinus className='text-red-500 font-semibold' onClick={() => dec(id)} />
 					<p>Qtd: <span className="font-semibold">{quantity}</span></p>
 				</button>
 			</div>

@@ -50,7 +50,7 @@ export default function Comment({ icon, name, createdAt, content, rating }: Comm
 				</div>
 				<p className="text-lg font-thin text-start leading-6 xl:w-3/4 px-1.5 py-3">{content}</p>
 				<div className="flex items-center justify-start gap-2">
-					<Stars rating={rating} />
+					<Stars rating={[rating] || [0]} />
 				</div>
 			</div>
 		</div>

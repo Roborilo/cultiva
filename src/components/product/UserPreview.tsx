@@ -29,7 +29,7 @@ export default function UserPreview({ user }: { user?: User }) {
 				<p className="text-sm font-thin self-start">{user?.sells} vendas</p>
 			</div>
 			<div className={`flex items-center w-full justify-between`}>
-				<Stars rating={user?.rate || 0} />
+				<Stars rating={[4]} />
 				<div className='flex items-center justify-center gap-1 rounded-full p-2 bg-white text-black'>
 					<p className="text-md font-thin">Confiável</p>
 					<IoIosCheckmarkCircle className="text-lg" />
