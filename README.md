@@ -8,4 +8,6 @@ TODO
 
 	- PAYMENT PAGE
 
+- Pagina Main -> click if (categoria) == category.name ->> setPageContext(null) 
+
  - product page ==>> HIGH PRIORITY
