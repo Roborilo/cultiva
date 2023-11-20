@@ -88,20 +88,20 @@ export default function EditContact() {
 			{modal && (
         <BasicModal title="Aviso" text={textAlert} open={modal} handleClose={() => setModal(false)} />
       )}
-			<TextField.Input placeholder="Telefone de Contato" size={'3'} radius="small" className="py-6 text-xl" onChange={(e) => setPayload({ ...payload, telephone: e.target.value })} />
+			<TextField.Input placeholder="Telefone de Contato" size={'3'} radius="small" className="py-4 text-lg" onChange={(e) => setPayload({ ...payload, telephone: e.target.value })} />
 			<div className="flex gap-4 w-full">
-				<TextField.Input placeholder="Rua" size={'3'} radius="small" className="py-6 text-xl" onChange={(e) => setPayload({ ...payload, street: e.target.value })} />
-				<TextField.Input placeholder="Número" size={'3'} radius="small" className="py-6 text-xl" onChange={(e) => setPayload({ ...payload, number: Number(e.target.value) })} type="number" />
+				<TextField.Input placeholder="Rua" size={'3'} radius="small" className="py-4 text-lg" onChange={(e) => setPayload({ ...payload, street: e.target.value })} />
+				<TextField.Input placeholder="Número" size={'3'} radius="small" className="py-4 text-lg" onChange={(e) => setPayload({ ...payload, number: Number(e.target.value) })} type="number" />
 			</div>
 			<div className="flex gap-4 w-full">
-				<TextField.Input placeholder="Bairro" size={'3'} radius="small" className="py-6 text-xl" onChange={(e) => setPayload({ ...payload, district: e.target.value })} />
-				<TextField.Input placeholder="Cidade" size={'3'} radius="small" className="py-6 text-xl" onChange={(e) => setPayload({ ...payload, city: e.target.value })} />
+				<TextField.Input placeholder="Bairro" size={'3'} radius="small" className="py-4 text-lg" onChange={(e) => setPayload({ ...payload, district: e.target.value })} />
+				<TextField.Input placeholder="Cidade" size={'3'} radius="small" className="py-4 text-lg" onChange={(e) => setPayload({ ...payload, city: e.target.value })} />
 			</div>
 			<div className="flex gap-4 w-full">
-				<TextField.Input placeholder="CEP" size={'3'} radius="small" className="py-6 text-xl" onChange={(e) => setPayload({ ...payload, cep: e.target.value })} />
-				<TextField.Input placeholder="Estado" size={'3'} radius="small" className="py-6 text-xl" onChange={(e) => setPayload({ ...payload, state: e.target.value })} />
+				<TextField.Input placeholder="CEP" size={'3'} radius="small" className="py-4 text-lg" onChange={(e) => setPayload({ ...payload, cep: e.target.value })} />
+				<TextField.Input placeholder="Estado" size={'3'} radius="small" className="py-4 text-lg" onChange={(e) => setPayload({ ...payload, state: e.target.value })} />
 			</div>
-			<button className="text-2xl font-medium py-2.5 px-6 bg-green-500 rounded-xl w-4/12" type="submit">Salvar</button>
+			<button className="text-xl font-medium py-2 px-3.5 bg-green-600 hover:bg-green-700 rounded-xl w-4/12" type="submit">Salvar</button>
 		</form>
 	)
 }

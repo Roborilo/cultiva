@@ -18,7 +18,7 @@ export default function CategoryContent({ name, quantity }: ICategoryProps) {
 	const { category, setCategory } = context
 
 	return (
-		<button className="w-full flex justify-between items-center text-white font-medium text-2xl hover:underline border-b border-gray-600 pb-4" onClick={() => {
+		<button className="w-full flex justify-between items-center text-white font-medium text-xl hover:underline border-b border-gray-600 pb-4" onClick={() => {
 			setCategory(category === name ? null : name)
 		}}>
 			<p>{name}</p>

@@ -43,12 +43,12 @@ export default function SearchInput() {
 	return (
 		<div className="flex justify-center">
 			<div className="inline-flex w-9 rounded-tl-3xl rounded-bl-3xl justify-center items-center bg-black">
-				<FaSearch className="text-2xl text-white cursor-pointer" onClick={handleSubmit} />
+				<FaSearch className="text-xl text-white cursor-pointer" onClick={handleSubmit} />
 			</div>
 			<input 
 				type="search" 
 				id="search" 
-				className="w-64 rounded-tr-3xl rounded-br-3xl text-white bg-black text-xl font-semibold px-2" 
+				className="w-64 rounded-tr-3xl rounded-br-3xl text-white bg-black text-lg font-medium px-2" 
 				placeholder="Pesquisar"
 				ref={inputRef}
 				onChange={(e) => setSearchQuery(e.target.value)}

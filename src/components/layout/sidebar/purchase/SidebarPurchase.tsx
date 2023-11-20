@@ -9,25 +9,25 @@ export default function SidebarPurchase() {
 	return (
 		<SidebarRoot>
 			<div className="flex gap-4 w-full p-4 mx-6 my-3 border-b-2 border-white items-center justify-start">
-				<FaShoppingCart className="text-2xl" />
-      	<h1 className="text-2xl font-bold">Seu Pedido</h1>
+				<FaShoppingCart className="text-xl" />
+      	<h1 className="text-xl font-bold">Seu Pedido</h1>
 			</div>
 			<div className="flex flex-col gap-4 p-4 mx-6 border-b-2 border-white">
 				<div className="flex justify-between">
-					<p className='text-lg font-medium'>Itens</p>
-					<p className="text-lg font-semibold">R$690,00</p>
+					<p className='text-base font-medium'>Itens</p>
+					<p className="text-base font-semibold">R$690,00</p>
 				</div>
 				<div className="flex justify-between">
-					<p className='text-lg font-medium'>Entrega</p>
-					<p className="text-lg font-semibold">R$30,00</p>
+					<p className='text-base font-medium'>Entrega</p>
+					<p className="text-base font-semibold">R$30,00</p>
 				</div>
 				<div className="flex justify-between">
-					<p className='text-lg font-medium'>Taxas</p>
-					<p className="text-lg font-semibold">R$20,00</p>
+					<p className='text-base font-medium'>Taxas</p>
+					<p className="text-base font-semibold">R$20,00</p>
 				</div>
 				<div className="flex justify-between">
-					<p className="text-xl font-semibold">TOTAL</p>
-					<p className='text-xl font-thin'>R$740,00</p>
+					<p className="text-lg font-semibold">TOTAL</p>
+					<p className='text-lg font-thin'>R$740,00</p>
 				</div>
 			</div>
 			<div className="flex items-center justify-between gap-4 p-4 mx-6 border-b-2 border-white">

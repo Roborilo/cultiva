@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useRef, useState } from 'react'
 import { BsImage } from 'react-icons/bs'
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function SellProductPage() {
 	const [modal, setModal] = useState(false)
@@ -121,15 +122,17 @@ export default function SellProductPage() {
   }
 
   return (
-    <main className="w-screen h-screen flex justify-center items-center">
+    <main className="w-screen h-full flex justify-center items-center">
 			{modal && (
         <BasicModal title="Erro" text={alertText} open={modal} handleClose={() => setModal(false)} />
       )}
-      <article className="rounded-lg border p-4 max-w-[440px] md:max-w-[540px] flex">
-        {status === 'authenticated' ? (
+      <article className="rounded-lg border p-4 max-w-[440px] md:max-w-[540px] flex gap-4">
+        {status === 'authenticated' && (
 					<>
 						{imagePreviews.length > 0 && (
-							<CreateProductPreviewImages data={imagePreviews} handleClose={handleClose} />
+							<div className='w-32 h-full my-2'>
+								<CreateProductPreviewImages data={imagePreviews} handleClose={handleClose} />
+							</div>
             )}
 						<div className='w-full'>
 							<h1 className="text-2xl font-bold ml-6 my-2">Criar Produto</h1>
@@ -181,7 +184,14 @@ export default function SellProductPage() {
 							</div>
 						</div>
 					</>
-        ) : (
+        )}
+				{status === 'loading' && (
+					<div className="flex flex-col justify-center items-center">
+						<AiOutlineLoading3Quarters className="w-10 h-10 animate-spin" />
+						<p className='text-lg font-medium my-3'>Carregando informações</p>
+					</div>
+				)}
+				{status === 'unauthenticated' && (
           <div>
             <p className='text-lg font-medium my-3'>Faça login para adicionar produtos{' '}
               <Link

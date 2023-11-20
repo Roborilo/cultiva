@@ -59,10 +59,10 @@ export default function EditProfile() {
 						onChange={handleFileChange}
 						ref={inputRef}
 				/>
-				<button className="text-xl font-medium py-2.5 px-6 bg-gray-500 rounded-xl" onClick={() => inputRef.current?.click()}>Alterar Foto de Perfil</button>
+				<button className="text-lg font-medium py-2 px-3.5 bg-gray-500 rounded-xl" onClick={() => inputRef.current?.click()}>Alterar Foto de Perfil</button>
 			</div>
 			<Input placeholder="Email" type="email" handleChange={setEmail} />
-			<button className="text-2xl font-medium py-2.5 px-6 bg-green-500 rounded-xl w-4/12" onClick={handleSubmit}>Salvar</button>
+			<button className="text-xl font-medium py-2 px-3.5 bg-green-500 rounded-xl w-4/12" onClick={handleSubmit}>Salvar</button>
 		</div>
 	)
 }

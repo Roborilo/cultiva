@@ -19,7 +19,7 @@ export default function CartPopover() {
 			<Popover.Root>
 			<Popover.Trigger>
 				<div className="button py-3 px-5 text-base font-medium rounded text-white bg-black shadow-sm transition-shadow duration-150 hover:shadow-sm shadow-white flex gap-1">
-					<FaShoppingCart className="text-2xl" />
+					<FaShoppingCart className="text-xl" />
 					Carrinho
 				</div>
 			</Popover.Trigger>
@@ -28,7 +28,7 @@ export default function CartPopover() {
 				<Popover.Content className="rounded p-5 w-[360px] bg-dropdown-menu-dark text-white shadow-lg data-[state=open]:data-[side=top]:animate-slideDownAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade"
         sideOffset={5}>        
 					<div className="flex flex-col">
-						<p className="text-mauve12 text-[20px] leading-[19px] font-semibold mb-2.5">Carrinho</p>
+						<p className="text-mauve12 text-[16px] leading-[19px] font-semibold mb-2.5">Carrinho</p>
 						{products.length > 0 ? (
 							<>
 								{products.map((product) => (
@@ -41,7 +41,7 @@ export default function CartPopover() {
 									/>
 								))}
 								<div>
-									<p className="font-semibold text-lg mt-2 flex justify-between items-center pb-2 border-b px-2">
+									<p className="font-semibold text-base mt-2 flex justify-between items-center pb-2 border-b px-2">
 										<span>Total</span>
 										<span>R$1960,00</span>
 									</p>
@@ -52,7 +52,7 @@ export default function CartPopover() {
 								</div>
 							</>
 						) : (
-							<p className="text-mauve12 text-[20px] leading-[19px] font-semibold my-6">Nenhum item no carrinho</p>
+							<p className="text-mauve12 text-[16px] leading-[19px] font-semibold my-6">Nenhum item no carrinho</p>
 						)}
 					</div>
 					<Popover.Close

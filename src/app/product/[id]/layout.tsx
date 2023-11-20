@@ -11,7 +11,7 @@ export default function MainLayout({
 		<div className="w-screen reverse-layout">
 			<Header />
 			<main className="main bg-cultiva-main w-full h-full flex justify-center items-start pb-4">{children}</main>
-			<div className='sticky top-24 sidebar w-[400px]'>
+			<div className='sticky top-20 sidebar w-[400px]'>
 				<SidebarProduct />
 			</div>
 		</div>

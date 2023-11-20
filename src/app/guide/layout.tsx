@@ -39,7 +39,7 @@ export default function GuideLayout({
 			<pageContext.Provider value={page}>
 				<Header />
 				<main className="main bg-cultiva-main w-full">{children}</main>
-				<div className='sticky top-28'>
+				<div className='sticky top-20'>
 					<SidebarRoot>
 						<h1 className="text-2xl font-bold pl-5 py-2">Guia</h1>
 						<div className="flex items-center px-5 py-2">

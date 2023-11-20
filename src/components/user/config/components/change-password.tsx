@@ -49,7 +49,7 @@ export default function ChangePassword() {
 			<div className="flex justify-between items-start w-full mt-2">
 				<Input placeholder="Senha atual" type="password" handleChange={setPassword} required />
 				<Input placeholder="Nova senha" type="password" handleChange={setNewPassword} required />
-				<button className="text-2xl font-medium py-2.5 px-6 bg-green-500 rounded-xl w-4/12" onClick={handleSubmit}>Salvar</button>
+				<button className="text-xl font-medium py-2.5 px-6 bg-green-500 rounded-xl w-4/12" onClick={handleSubmit}>Salvar</button>
 			</div>
 		</>
 	)

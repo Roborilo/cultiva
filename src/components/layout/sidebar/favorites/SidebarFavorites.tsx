@@ -52,7 +52,7 @@ export default function SidebarFavorites() {
     const filteredCategories = categories.filter((category: any) => category.name.toLowerCase().includes(search.toLowerCase()))
 
     if (filteredCategories.length === 0) {
-      return <p className="text-lg font-semibold py-5 pl-1">Não há produtos encontrados</p>
+      return <p className="text-base font-semibold py-5 pl-1">Não há produtos encontrados</p>
     }
 
     return filteredCategories.map((category, index) => (
@@ -66,7 +66,7 @@ export default function SidebarFavorites() {
   
   return (
     <SidebarRoot>
-      <h1 className="text-2xl font-bold pl-5 py-2">Favoritos</h1>
+      <h1 className="text-xl font-bold pl-5 py-2">Favoritos</h1>
       <div className="flex items-center px-5 py-2">
         <Input placeholder="Filtrar por categoria" handleChange={setSearch} />
       </div>
@@ -83,7 +83,7 @@ export default function SidebarFavorites() {
               />
             ))
           ) : (
-            <p className="text-lg font-semibold py-5 pl-1">Não há produtos encontrados</p>
+            <p className="text-base font-semibold py-5 pl-1">Não há produtos encontrados</p>
           )
         )}
       </Category.Root>

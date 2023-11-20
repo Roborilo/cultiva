@@ -33,7 +33,7 @@ html::-webkit-scrollbar-thumb:hover {
 .layout {
   display: grid;
   grid:
-    "header header" 112px
+    "header header" 80px
     "sidebar main" 1fr
     / auto 1fr;
 }
@@ -41,7 +41,7 @@ html::-webkit-scrollbar-thumb:hover {
 .reverse-layout {
   display: grid;
   grid:
-    "header header" 112px
+    "header header" 80px
     "main sidebar" 1fr
     / 1fr auto;
 }

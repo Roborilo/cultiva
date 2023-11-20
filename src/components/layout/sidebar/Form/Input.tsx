@@ -19,7 +19,7 @@ export default function Input({
 			<TextField.Input
 				placeholder={placeholder} 
 				size={'3'} 
-				className="text-white font-medium text-lg" 
+				className="text-white font-medium text-base" 
 				onChange={(e) => {
 					if (!handleChange) return
 					handleChange(e.target.value)

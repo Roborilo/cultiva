@@ -16,7 +16,7 @@ export default function DeliveryForm({ checked, handleClick, payload, setPayload
 			<Text as="label" size="2">
 				<Flex gap="2" className="items-center">
 					<Checkbox defaultChecked={checked} size='3' onClick={handleClick} /> 
-					<p className="text-2xl">Usar dados de usuário salvo para o envio?</p>
+					<p className="text-xl">Usar dados de usuário salvo para o envio?</p>
 				</Flex>
 			</Text>
 			{!checked && (

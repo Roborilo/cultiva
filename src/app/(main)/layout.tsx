@@ -43,7 +43,7 @@ export default function MainLayout({
 				<Header />
 				<categoryContext.Provider value={categoryContextValue}>
 					<main className="main bg-cultiva-main w-full">{children}</main>
-					<div className='sticky top-28'>
+					<div className='sticky top-20'>
 						<SidebarCategory />
 					</div>
 				</categoryContext.Provider>

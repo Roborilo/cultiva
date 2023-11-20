@@ -9,7 +9,7 @@ export default function MainLayout({
 	return (
 		<>
 			<Header />
-			<main className="main bg-cultiva-main w-full h-full">{children}</main>
+			<main className="main bg-cultiva-main">{children}</main>
 		</>
 	)
 }
