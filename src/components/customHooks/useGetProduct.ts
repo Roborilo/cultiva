@@ -9,6 +9,17 @@ async function handleFetch(id: string) {
   if (user.status === 200) {
     response.data.user = user.data
   }
+
+  const buys = await axios.get(`${BASEURL}/product/${id}/buys`)
+  if (buys.status === 200) {
+    response.data.buys = buys.data
+  }
+
+  const userSales = await axios.get(`${BASEURL}/user/${response.data.producerId}/sales`)
+  if (userSales.status === 200) {
+    response.data.user.sales = userSales.data
+  }
+
   console.log(response)
   return response
 }

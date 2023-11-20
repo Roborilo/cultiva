@@ -2,13 +2,14 @@ import UserAvatar from "../user/Avatar";
 import Stars from "./Stars";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
-export default function UserPreview() {
-	const user = {
-		name: 'Matheus',
-		icon: '',
-		rate: 5
-	}
+type User = {
+	name?: string;
+	icon?: string;
+	rate?: number;
+	sells?: number;
+}
 
+export default function UserPreview({ user }: { user?: User }) {
 	return (
 		<div className="flex flex-col items-center justify-start px-3.5 py-4 rounded-lg bg-cultiva-main shadow-sm gap-4 w-full min-w-[340px]">
 			<div className="flex items-center justify-between w-full">
@@ -25,16 +26,14 @@ export default function UserPreview() {
 						</>
 					)}
 				</div>
-				<p className="text-sm font-thin self-start">200 vendas</p>
+				<p className="text-sm font-thin self-start">{user?.sells} vendas</p>
 			</div>
-			<div className={`flex items-center w-full ${user.rate > 4 ? 'justify-between' : 'justify-start'}`}>
+			<div className={`flex items-center w-full justify-between`}>
 				<Stars />
-				{user.rate > 4 && (
-					<div className='flex items-center justify-center gap-1 rounded-full p-2 bg-white text-black'>
-						<p className="text-md font-thin">Confiável</p>
-						<IoIosCheckmarkCircle className="text-lg" />
-					</div>
-				)}
+				<div className='flex items-center justify-center gap-1 rounded-full p-2 bg-white text-black'>
+					<p className="text-md font-thin">Confiável</p>
+					<IoIosCheckmarkCircle className="text-lg" />
+				</div>
 			</div>
 		</div>
 	)

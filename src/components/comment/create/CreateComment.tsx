@@ -4,10 +4,10 @@ import UserAvatar from '@/components/user/Avatar'
 import { PaperPlaneIcon } from '@radix-ui/react-icons'
 import { Select, TextField } from '@radix-ui/themes'
 
-export default function CreateComment() {
+export default function CreateComment({ image }: { image?: string }) {
 	return (
 		<div className='flex justify-start items-center w-full mt-4 gap-4 bg-cultiva-main px-5 py-4 rounded-sm'>
-			<UserAvatar wh='w-16 h-12' />
+			<UserAvatar wh='w-16 h-12' image={image} />
 			<TextField.Root size={'3'} className='w-full'>
 				<TextField.Input placeholder="Escreva seu comentário" size={'3'} />
 				<TextField.Slot className='cursor-pointer'>

@@ -1,33 +1,24 @@
 'use client'
 
-import Image, { StaticImageData } from "next/image";
-import productPreviewImage from '@/../public/product-default.png'
-import productBackImage from '@/../public/abstract-nail-polish-texture-detail.jpg'
-import ima1 from '@/../public/marisol-benitez-QvkAQTNj4zk-unsplash.jpg'
-import ima2 from '@/../public/logo.png'
+import Image from "next/image";
 import { useState } from "react";
 
-export default function ImageBanner() {
-	const [images, setImages] = useState([
-		productPreviewImage,
-		productBackImage,
-		ima1,
-		ima2
-	])
-	const [actualImage, setActualImage] = useState(images[0])
+export default function ImageBanner({ images }: { images?: string[] }) {
+	const [actualImage, setActualImage] = useState(images ? images[0] : 'https://information-science-engineering.newhorizoncollegeofengineering.in/wp-content/uploads/2020/01/default-placeholder.png');
+	const [img, setImg] = useState(images ? images : ['https://information-science-engineering.newhorizoncollegeofengineering.in/wp-content/uploads/2020/01/default-placeholder.png']);
 
-	const handleClick = (clickedImage: StaticImageData) => {
+	const handleClick = (clickedImage: string) => {
 		setActualImage(clickedImage);
-		const newImages = images.filter(image => image !== clickedImage);
-		setImages([clickedImage, ...newImages]);
+		const newImages = img.filter(image => image !== clickedImage);
+		setImg([clickedImage, ...newImages]);
 	}
 
 	return (
 		<>
 			<div className='flex flex-col gap-4 h-[510px] w-32'>
-				{images.map((image, index) => (
-					<div key={index} className="cursor-pointer hover:bg-opacity-80 w-32 max-h-32">
-						<Image
+				{img.map((image, index) => (
+					<div key={index} className="cursor-pointer hover:bg-opacity-80 w-28 max-h-28">
+						<img
 							src={image}
 							alt=""
 							onClick={() => handleClick(image)}
@@ -37,7 +28,7 @@ export default function ImageBanner() {
 				))}
 			</div>
 			<div className='flex justify-center items-center rounded-lg bg-dropdown-menu-dark w-full h-full'>
-				<Image src={actualImage} alt="" className='h-full w-auto' />
+				<img src={actualImage} alt="" className='h-full w-auto' />
 			</div>
 		</>
 	)

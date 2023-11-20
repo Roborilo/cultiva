@@ -7,6 +7,20 @@ import { createContext, useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import useGetProduct from "@/components/customHooks/useGetProduct"
 
+type Comment = {
+	id: string,
+	user: {
+		id: string,
+		name: string,
+		email: string,
+		icon: string,
+		rating: number[],
+	}
+	content: string,
+	rating: number,
+	createdAt: string
+}
+
 type Product = {
 	id: string,
 	name: string,
@@ -18,6 +32,7 @@ type Product = {
 	price: string,
 	rating: number[],
 	images: string[],
+	buys: object[],
 	createdAt: string,
 	producerId: string,
 	user: {
@@ -26,24 +41,29 @@ type Product = {
 		email: string,
 		icon: string,
 		rating: number[],
+		sales: object[]
 	}
-	comments: {
-		id: string,
-		clientId: string,
-		comment: string,
-		rating: number,
-		createdAt: string
-	}
+	comments: Comment[]
 }
 
-export const productContext = createContext<Product | null>(null)
+type ProductContextType = {
+	isLoading: boolean
+	product: Product | null
+	error: boolean
+}
+
+export const productContext = createContext<ProductContextType>({
+	isLoading: true,
+	product: null,
+	error: false
+})
 
 export default function MainLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-	const [product, setProduct] = useState<Product | null>(null)
+	const [context, setContext] = useState<ProductContextType>({isLoading: true, product: null, error: false})
 	const id = usePathname().split('/').pop()
 
 	useEffect(() => {
@@ -52,17 +72,27 @@ export default function MainLayout({
 				return
 			}
 			const data = await useGetProduct(id)
-			console.log(data)
-			setProduct(data)
+			if (!data) {
+				setContext({
+					isLoading: false,
+					product: null,
+					error: true
+				})
+			}
+			setContext({
+				isLoading: false,
+				product: data,
+				error: false
+			})
 		}
 
 		fetchData()
 	}, [])
 
 	return (
-		<div className="w-screen reverse-layout">
+		<div className="w-screen reverse-layout min-h-screen">
 			<Header />
-			<productContext.Provider value={product}>
+			<productContext.Provider value={context}>
 				<main className="main bg-cultiva-main w-full h-full flex justify-center items-start pb-4">
 					{children}
 				</main>
