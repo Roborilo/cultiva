@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from "react"
-import Input from "../Form/Input"
-import SidebarRoot from "../Root"
-import { Category } from "../Category"
+import { useState } from 'react'
+import Input from '../Form/Input'
+import SidebarRoot from '../Root'
+import { Category } from '../Category'
 
 type Category = {
   name: string
@@ -15,44 +15,50 @@ export default function SidebarFavorites() {
 
   const categories: Category[] = [
     {
-      name: "Cultura",
+      name: 'Cultura',
       quantity: 10,
     },
     {
-      name: "Frutas",
+      name: 'Frutas',
       quantity: 20,
     },
     {
-      name: "Vegetais",
+      name: 'Vegetais',
       quantity: 32,
     },
     {
-      name: "Horta",
+      name: 'Horta',
       quantity: 15,
     },
     {
-      name: "Lã",
+      name: 'Lã',
       quantity: 91,
     },
     {
-      name: "Eletrônicos",
+      name: 'Eletrônicos',
       quantity: 921,
     },
     {
-      name: "Cultura",
+      name: 'Cultura',
       quantity: 10,
     },
     {
-      name: "Cultura",
+      name: 'Cultura',
       quantity: 10,
     },
   ]
 
   const filteredCategories = (categories: Category[], search: string) => {
-    const filteredCategories = categories.filter((category: any) => category.name.toLowerCase().includes(search.toLowerCase()))
+    const filteredCategories = categories.filter((category: any) =>
+      category.name.toLowerCase().includes(search.toLowerCase()),
+    )
 
     if (filteredCategories.length === 0) {
-      return <p className="text-base font-semibold py-5 pl-1">Não há produtos encontrados</p>
+      return (
+        <p className="text-base font-semibold py-5 pl-1">
+          Não há produtos encontrados
+        </p>
+      )
     }
 
     return filteredCategories.map((category, index) => (
@@ -63,7 +69,7 @@ export default function SidebarFavorites() {
       />
     ))
   }
-  
+
   return (
     <SidebarRoot>
       <h1 className="text-xl font-bold pl-5 py-2">Favoritos</h1>
@@ -73,18 +79,18 @@ export default function SidebarFavorites() {
       <Category.Root>
         {search.length > 0 ? (
           filteredCategories(categories, search)
+        ) : categories.length > 0 ? (
+          categories.map((category, index) => (
+            <Category.Content
+              key={index}
+              name={category.name}
+              quantity={category.quantity}
+            />
+          ))
         ) : (
-          categories.length > 0 ? (
-            categories.map((category, index) => (
-              <Category.Content
-                key={index}
-                name={category.name}
-                quantity={category.quantity}
-              />
-            ))
-          ) : (
-            <p className="text-base font-semibold py-5 pl-1">Não há produtos encontrados</p>
-          )
+          <p className="text-base font-semibold py-5 pl-1">
+            Não há produtos encontrados
+          </p>
         )}
       </Category.Root>
     </SidebarRoot>

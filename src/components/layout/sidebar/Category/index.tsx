@@ -1,7 +1,7 @@
-import CategoryContent from "./CategoryContent"
-import CategoryWrapper from "./CategoryWrapper"
+import CategoryContent from './CategoryContent'
+import CategoryWrapper from './CategoryWrapper'
 
 export const Category = {
-	Root: CategoryWrapper,
-	Content: CategoryContent,
+  Root: CategoryWrapper,
+  Content: CategoryContent,
 }

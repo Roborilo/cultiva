@@ -23,12 +23,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <html lang="pt-BR">
       <body className={cn('w-screen h-screen', roboto.variable)}>
         <NextAuthProvider>
-          <Theme className="w-full h-full layout" appearance="dark" accentColor="ruby" grayColor="gray" panelBackground="solid">
+          <Theme
+            className="w-full h-full layout"
+            appearance="dark"
+            accentColor="ruby"
+            grayColor="gray"
+            panelBackground="solid"
+          >
             {children}
           </Theme>
         </NextAuthProvider>

@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 export default function Historia() {
   return (
@@ -15,5 +15,5 @@ export default function Historia() {
         <p className="text-white mx-8 text-4xl	">FaQ/ QnA</p>
       </section>
     </div>
-  );
+  )
 }

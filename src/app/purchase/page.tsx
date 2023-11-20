@@ -1,7 +1,5 @@
-import AccordionDemo from "@/components/purchase/Accordion";
+import AccordionDemo from '@/components/purchase/Accordion'
 
 export default function PurchasePage() {
-	return (
-		<AccordionDemo />
-	)
+  return <AccordionDemo />
 }

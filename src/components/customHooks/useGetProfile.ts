@@ -3,8 +3,8 @@ import axios from 'axios'
 const BASEURL = 'https://cultiva-backend.vercel.app'
 
 async function handleFetch(id: string) {
-	const response = await axios.get(`${BASEURL}/user/${id}`)
-	return response
+  const response = await axios.get(`${BASEURL}/user/${id}`)
+  return response
 }
 
 export default async function useGetProfile(id: string) {

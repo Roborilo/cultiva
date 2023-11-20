@@ -2,7 +2,17 @@ import axios from 'axios'
 
 const BASEURL = 'https://cultiva-backend.vercel.app'
 
-async function handleFetch(name: string, description: string, manufacturingDate: Date, expirationDate: Date, category: string, price: number, quantity: number, token: string, media?: File[]) {
+async function handleFetch(
+  name: string,
+  description: string,
+  manufacturingDate: Date,
+  expirationDate: Date,
+  category: string,
+  price: number,
+  quantity: number,
+  token: string,
+  media?: File[],
+) {
   const data = {
     name,
     description,
@@ -32,7 +42,11 @@ async function handleFetch(name: string, description: string, manufacturingDate:
   const formData = new FormData()
   media?.map((file) => formData.append('files', file))
 
-  const sendImages = await axios.post(`${BASEURL}/firebase/product/${response.data.id}`, formData, config)
+  const sendImages = await axios.post(
+    `${BASEURL}/firebase/product/${response.data.id}`,
+    formData,
+    config,
+  )
   return sendImages
 }
 
@@ -47,14 +61,31 @@ export default async function useCreateProduct(
   token: string,
   media?: File[],
 ) {
-  if (!name && !description && !category && !price && !manufacturingDate && !expirationDate) {
+  if (
+    !name &&
+    !description &&
+    !category &&
+    !price &&
+    !manufacturingDate &&
+    !expirationDate
+  ) {
     return false
   } else if (typeof price !== 'number') {
     return false
   }
 
   try {
-    const response = await handleFetch(name, description, manufacturingDate, expirationDate, category, price, quantity, token, media)
+    const response = await handleFetch(
+      name,
+      description,
+      manufacturingDate,
+      expirationDate,
+      category,
+      price,
+      quantity,
+      token,
+      media,
+    )
     if (response) {
       return true
     } else {

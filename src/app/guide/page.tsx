@@ -1,20 +1,20 @@
 'use client'
 
-import { useContext } from "react";
-import { pageContext } from "./layout";
-import Introduction from "@/components/guide/introduction/Introduction";
-import Comeco from "@/components/guide/comeco/Comeco";
-import Cultura from "@/components/guide/cultura/Cultura";
-import Frutas from "@/components/guide/frutas/Frutas";
-import Vegetables from "@/components/guide/vegetais/Vegetais";
-import Horta from "@/components/guide/horta/Horta";
-import ModaSustentavel from "@/components/guide/moda/ModaSustentavel";
-import CasaSustentavel from "@/components/guide/casa/CasaSustentavel";
-import BelezaConsciente from "@/components/guide/beleza/BelezaConsciente";
-import ViagemSustentavel from "@/components/guide/viagem/ViagemSustentavel";
-import EducacaoAmbiental from "@/components/guide/educacao/EducacaoAmbiental";
-import ComunidadeCultiva from "@/components/guide/comunidade/ComunidadeCultiva";
-import About from "@/components/guide/about/About";
+import { useContext } from 'react'
+import { pageContext } from './layout'
+import Introduction from '@/components/guide/introduction/Introduction'
+import Comeco from '@/components/guide/comeco/Comeco'
+import Cultura from '@/components/guide/cultura/Cultura'
+import Frutas from '@/components/guide/frutas/Frutas'
+import Vegetables from '@/components/guide/vegetais/Vegetais'
+import Horta from '@/components/guide/horta/Horta'
+import ModaSustentavel from '@/components/guide/moda/ModaSustentavel'
+import CasaSustentavel from '@/components/guide/casa/CasaSustentavel'
+import BelezaConsciente from '@/components/guide/beleza/BelezaConsciente'
+import ViagemSustentavel from '@/components/guide/viagem/ViagemSustentavel'
+import EducacaoAmbiental from '@/components/guide/educacao/EducacaoAmbiental'
+import ComunidadeCultiva from '@/components/guide/comunidade/ComunidadeCultiva'
+import About from '@/components/guide/about/About'
 
 export default function Guide() {
   const page = useContext(pageContext)
@@ -73,4 +73,3 @@ export default function Guide() {
 
   return <Introduction />
 }
-

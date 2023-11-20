@@ -54,5 +54,5 @@ export default function Comeco() {
         </p>
       </section>
     </div>
-  );
+  )
 }

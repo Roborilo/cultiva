@@ -1,28 +1,28 @@
 import NextAuth from 'next-auth'
 
 type Address = {
-	id: string
-	street: string
-	number: number
-	complement: string
-	district: string
-	cep: string
-	city: string
-	state: string
+  id: string
+  street: string
+  number: number
+  complement: string
+  district: string
+  cep: string
+  city: string
+  state: string
 }
 
 type Producer = {
-	userId?: string
-	cpf?: string
-	cnpj?: string
+  userId?: string
+  cpf?: string
+  cnpj?: string
 }
 
 type Client = {
-	userId?: string
-	cart?: object[]
-	favorites?: object[]
-	purchases?: object[]
-	commentsOnProducts?: object[]
+  userId?: string
+  cart?: object[]
+  favorites?: object[]
+  purchases?: object[]
+  commentsOnProducts?: object[]
 }
 
 declare module 'next-auth' {
@@ -32,14 +32,14 @@ declare module 'next-auth' {
       name: string
       email: string
       icon?: string | null
-			telephone?: string | null
-			addressId?: string | null
-			address?: Address | null
-			producer?: Producer | null 
-			client?: Client
-			rating?: number[]
-			comments?: object[]
-			createdAt?: Date | string
+      telephone?: string | null
+      addressId?: string | null
+      address?: Address | null
+      producer?: Producer | null
+      client?: Client
+      rating?: number[]
+      comments?: object[]
+      createdAt?: Date | string
       accessToken: string
     }
   }

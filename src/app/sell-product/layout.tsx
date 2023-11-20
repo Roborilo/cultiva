@@ -1,4 +1,4 @@
-import Header from "@/components/layout/header/Header"
+import Header from '@/components/layout/header/Header'
 import '@/app/globals.css'
 
 export default function MainLayout({
@@ -6,10 +6,10 @@ export default function MainLayout({
 }: {
   children: React.ReactNode
 }) {
-	return (
-		<>
-			<Header />
-			<main className="main bg-cultiva-main">{children}</main>
-		</>
-	)
+  return (
+    <>
+      <Header />
+      <main className="main bg-cultiva-main">{children}</main>
+    </>
+  )
 }

@@ -3,15 +3,15 @@ import axios from 'axios'
 const BASEURL = 'https://cultiva-backend.vercel.app'
 
 async function handleFetch(token: string) {
-	const config = {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	}
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
 
-	const response = await axios.delete(`${BASEURL}/user`, config)
+  const response = await axios.delete(`${BASEURL}/user`, config)
 
-	return response
+  return response
 }
 
 export default async function useDeleteAccount(token: string) {

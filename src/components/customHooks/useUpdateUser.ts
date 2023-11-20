@@ -2,38 +2,52 @@ import axios from 'axios'
 
 const BASEURL = 'https://cultiva-backend.vercel.app'
 
-async function handleFetch(token: string, name?: string, email?: string, icon?: File[]) {
-	const config = {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	}
-	
-	let data;
-	if (name) {
-		data = { name }
-	}
-	if (email) {
-		data = { ...data, email }
-	}
+async function handleFetch(
+  token: string,
+  name?: string,
+  email?: string,
+  icon?: File[],
+) {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
 
-	const response = await axios.patch(`${BASEURL}/user`, data, config)
-	if (icon?.length === 0 || !icon) {
-		return response
-	}
+  let data
+  if (name) {
+    data = { name }
+  }
+  if (email) {
+    data = { ...data, email }
+  }
 
-	const formData = new FormData()
-	formData.append('file', icon[0])
+  const response = await axios.patch(`${BASEURL}/user`, data, config)
+  if (icon?.length === 0 || !icon) {
+    return response
+  }
 
-	const responseIcon = await axios.post(`${BASEURL}/firebase/icon`, formData, config)
-	if (!(responseIcon.status === 200)) {
-		return responseIcon
-	}
+  const formData = new FormData()
+  formData.append('file', icon[0])
 
-	return responseIcon
+  const responseIcon = await axios.post(
+    `${BASEURL}/firebase/icon`,
+    formData,
+    config,
+  )
+  if (!(responseIcon.status === 200)) {
+    return responseIcon
+  }
+
+  return responseIcon
 }
 
-export default async function useUpdateUser(token: string, name?: string, email?: string, icon?: File[]) {
+export default async function useUpdateUser(
+  token: string,
+  name?: string,
+  email?: string,
+  icon?: File[],
+) {
   try {
     const response = await handleFetch(token, name, email, icon)
     if (response.status === 200) {
